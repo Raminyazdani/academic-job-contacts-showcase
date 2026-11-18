@@ -35,7 +35,8 @@ python -m contactbook serve --database contacts.sqlite3 --port 8000
 In another terminal, paste the printed token for the `cairn` workspace when prompted. These three requests create a contact, list the workspace, and change the new contact's stage.
 
 ```sh
-read -r -p 'Cairn token: ' TOKEN
+printf 'Cairn token: '
+read -r TOKEN
 BASE=http://127.0.0.1:8000
 CONTACT=$(curl -fsS "$BASE/contacts" -H "Authorization: Bearer $TOKEN" \
   -H 'Content-Type: application/json' \
